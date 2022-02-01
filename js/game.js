@@ -31,6 +31,7 @@ class Game{
         this.doll.start(this.frameNumber)
         this.move();
         this.checkGameOver();
+        this.checkWin();
         player1.checkCollisions();
         player2.checkCollisions();
         this.ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
@@ -59,6 +60,7 @@ class Game{
         this.bullet4.draw()
         this.field.draw()
         this.doll.draw()
+       
         
         
         // this.bullet.draw()
@@ -66,9 +68,14 @@ class Game{
     }
 
     checkGameOver(){
-        if(player1.gOver === 0 && player2.gOver === 0){console.log("DEAD MADAFAKAS")
+        if(player1.gOver && player2.gOver){console.log("DEAD MADAFAKAS")
         this.continueGame = false;
         }
+    }
+
+    checkWin(){
+        if(this.player1.x <= 220){console.log("PLAYER 1 WINS!!!!")}
+        if(this.player2.x <= 220){console.log("PLAYER 2 WINS!!!!")}
     }
     
 }

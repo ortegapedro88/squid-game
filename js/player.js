@@ -11,13 +11,14 @@ class Player {
     this.tr = 1
     this.td = 1
     this.tu = 1
-    this.gOver = 1
+    this.gOver = false
     this.walking = false
     this.stillPosition = []
     
     
   }
   move(){
+    
     if(doll.sing){
       this.stillPosition = []
       
@@ -28,7 +29,7 @@ class Player {
       if(this.stillPosition[i][0] != this.stillPosition[i+1][0] || this.stillPosition[i][1] != this.stillPosition[i+1][1]){this.gameOverDoll()}
     }
       }
-      console.log(this.stillPosition)
+      //console.log(this.stillPosition)
     
     }
 
@@ -60,11 +61,15 @@ class Player {
   }
 
   gameOver(){
-    this.gOver = 0;   
+    this.gOver = true;
+      
   }
 
   gameOverDoll(){
-    this.gOver = 0;   
+    this.gOver = true;   
+  }
+  gameOverDraw(){
+  
   }
 
 }
