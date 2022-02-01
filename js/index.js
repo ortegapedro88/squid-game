@@ -10,8 +10,9 @@ let introSong = new Audio('/audio/intro.mp3');
 let dollSong = new Audio('/audio/doll_song.mp3')
 
 
-const bullet1 = new Bullet(ctx, 878, 550,87,87, "up") // ctx, x, y,width,height, direction
-const bullet2 = new Bullet(ctx, 748, 0,87,87, "down") // ctx, x, y,width,height, direction
+
+const bullet1 = new Bullet(ctx, 876, 550,90,90, "up") // ctx, x, y,width,height, direction
+const bullet2 = new Bullet(ctx, 745, 0,90,90, "down") // ctx, x, y,width,height, direction
 const bullet3 = new Bullet(ctx, 629, 51,75,75, "round") // ctx, x, y,width,height, direction
 const bullet4 = new Bullet(ctx, 384, 423,75,75, "round") // ctx, x, y,width,height, direction
 const player1 = new Player(ctx, 1100, 150, 15, 30, "rgb(0, 0, 230)", "Player 1")
@@ -118,17 +119,25 @@ document.addEventListener('keydown', function(event) {
         break;
         case "a":
             keyA = false;
+        case "A":
+            keyA = false;
          // player2.x -= 3*player2.tl*player2.gOver;
           break;
       case "d":
+          keyD = false;
+      case "D":
           keyD = false;
          // player2.x += 3*player2.tr*player2.gOver;
           break;
       case "w":
           keyW = false;
+      case "W":
+          keyW = false;
          // player2.y -= 3*player2.tu*player2.gOver;
           break;
       case "s":
+          keyS = false;
+      case "S":
           keyS = false;
         //   player2.y += 3*player2.td*player2.gOver;
           break;

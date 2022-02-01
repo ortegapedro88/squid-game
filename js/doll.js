@@ -2,15 +2,16 @@ class Doll {
     constructor(ctx, dollSong) {
   
       this.ctx = ctx;
-      this.x = 80;
-      this.y = 200;
-      this.width = 100;
-      this.height = 150;
+      this.x = 59;
+      this.y = 185;
+      this.width = 135;
+      this.height = 180;
       this.color = "green"
       this.counter = 0;
       this.dollSong = dollSong
       this.sing = false
-
+      this.img = new Image();
+      this.img.src = "/images/doll.png";
             
     }
 
@@ -33,6 +34,8 @@ class Doll {
     draw() {
       this.ctx.fillStyle = this.color;
       this.ctx.fillRect(this.x, this.y, this.width, this.height);
+
+      this.ctx.drawImage(this.img ,this.x, this.y, this.width, this.height)
     }
   
     gameOver(){

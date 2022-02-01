@@ -14,6 +14,7 @@ class Player {
     this.gOver = false
     this.walking = false
     this.stillPosition = []
+    this.name = name
     
     
   }
@@ -58,10 +59,37 @@ class Player {
   draw() {
     this.ctx.fillStyle = this.color;
     this.ctx.fillRect(this.x, this.y, this.width, this.height);
+
+
+  }
+
+  gOverBoard(){
+    if(this.gOver){
+      this.ctx.fillStyle = "white";
+      this.ctx.textAlign = "center";
+      this.ctx.font = "bold 25px sans-serif";
+      this.ctx.fillText(
+      `${this.name}`,
+      545,
+      225
+    )
+    this.ctx.fillText(
+      `go home`,
+      545,
+      255
+    )
+    this.ctx.font = "bold 40px sans-serif"
+    this.ctx.fillText(
+      `NOOB!!!`,
+      545,
+      300
+    )
+    }
   }
 
   gameOver(){
     this.gOver = true;
+
       
   }
 
