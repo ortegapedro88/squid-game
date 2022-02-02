@@ -8,7 +8,8 @@ class Game {
     bullet2,
     bullet3,
     bullet4,
-    doll
+    doll,
+    background
   ) {
     this.ctx = ctx;
     //  this.background = background;
@@ -22,24 +23,88 @@ class Game {
     this.doll = doll;
     this.frameNumber = 0;
     this.continueGame = true;
-    this.seconds = 0;
+    //this.seconds = 0;
     this.win1 = false;
     this.win2 = false;
-  }
-  init() {
-    this.frameNumber = 0
-    this.ctx.canvas.width = 1200;
-    this.ctx.canvas.height = 550;
-    this.continueGame = true;
-    setInterval(() => {
-      this.seconds++;
-    }, 1000);
-    this.start();
+    this.background = background;
+    this.reqId = 0
   }
 
+
+  init() {
+    this.frameNumber = 0
+    clearInterval(doll.intervalId)
+    cancelAnimationFrame(this.reqId)
+    this.ctx.restore()
+    this.ctx.canvas.width = 1200;
+    this.ctx.canvas.height = 550;
+    
+    
+    //////////////////////// restart
+    
+    this.continueGame = true;
+    this.win1 = false;
+    this.win2 = false;
+    this.player1.x = 1100
+    this.player2.x = 1100
+    this.player1.y = 150
+    this.player2.y = 370
+    this.player1.tl = 1
+    this.player1.tr = 1
+    this.player1.td = 1
+    this.player1.tu = 1
+    this.player1.gOver = false
+    this.player1.walking = false
+    this.player1.stillPosition = []
+    this.player2.tl = 1
+    this.player2.tr = 1
+    this.player2.td = 1
+    this.player2.tu = 1
+    this.player2.gOver = false
+    this.player2.walking = false
+    this.player2.stillPosition = []
+    this.bullet1.spriteColumns = 8;
+    this.bullet1.spriteRows = 1;
+    this.bullet1.spriteCol = 0;
+    this.bullet1.spriteRow = 0;
+    this.bullet2.spriteColumns = 8;
+    this.bullet2.spriteRows = 1;
+    this.bullet2.spriteCol = 0;
+    this.bullet2.spriteRow = 0;
+    this.bullet3.spriteColumns = 8;
+    this.bullet3.spriteRows = 1;
+    this.bullet3.spriteCol = 0;
+    this.bullet3.spriteRow = 0;
+    this.bullet4.spriteColumns = 8;
+    this.bullet4.spriteRows = 1;
+    this.bullet4.spriteCol = 0;
+    this.bullet4.spriteRow = 0;
+    arrowLeft = false;
+    arrowRight = false;
+    arrowUp = false;
+    arrowDown = false;
+    keyA = false;
+    keyS = false;
+    keyD = false;
+    keyW = false;
+    this.ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+    
+    
+    
+    //////////////////////////////
+    
+    
+    this.doll.color = "red";
+    this.doll.counter = 0;
+    this.doll.sing = true
+    this.doll.seconds = 0;
+    this.continueGame = true;
+    this.start();
+  }
+  
   start() {
-    this.frameNumber += 1;
     this.doll.start(this.frameNumber);
+    this.frameNumber += 1;
     this.move();
     this.checkGameOver();
     this.checkWin();
@@ -47,7 +112,7 @@ class Game {
     player2.checkCollisions();
     this.ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
     this.draw();
-    if (this.continueGame) requestAnimationFrame(this.start.bind(this));
+    if (this.continueGame) this.reqId = requestAnimationFrame(this.start.bind(this));
   }
 
   move() {
@@ -62,14 +127,15 @@ class Game {
   }
 
   draw() {
-    //this.background.draw()
     this.player2.draw();
     this.player1.draw();
-    this.bullet1.draw();
-    this.bullet2.draw();
-    this.bullet3.draw();
-    this.bullet4.draw();
+    this.bullet1.draw(this.frameNumber);
+    this.bullet2.draw(this.frameNumber);
+    this.bullet3.draw(this.frameNumber);
+    this.bullet4.draw(this.frameNumber);
     this.field.draw();
+    this.background.draw()
+    this.background.setSpriteFrame(this.frameNumber)
     this.player1.gOverBoard()
     this.player2.gOverBoard()
     this.doll.draw();

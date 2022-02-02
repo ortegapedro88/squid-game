@@ -133,58 +133,14 @@ class Player {
 
   gameOver(){
     this.gOver = true;
-
-
-
-      
+ 
   }
 
   gameOverDoll(){
     this.gOver = true;  
     this.gOverDoll = true
-  
-    
-    
-    
+ 
 
   }
   
-
 }
-
-// this.ctx.fillStyle = "blue";
-//       this.ctx.fillRect(this.x, this.y, this.width, this.height)
-
-/*
-this.ctx.fillStyle = "black";
-    this.ctx.fillRect(this.x, this.y, 1, 1)
-    this.ctx.fillStyle = "blue";
-    this.ctx.fillRect(this.x+1, this.y, 1, 1)
-    this.ctx.fillStyle = "black";
-    this.ctx.fillRect(this.x+2, this.y, 1, 1)
-    this.ctx.fillStyle = "red";
-    this.ctx.fillRect(this.x, this.y+1, 1, 1)
-    this.ctx.fillStyle = "white";
-    this.ctx.fillRect(this.x+1, this.y+1, 1, 1)
-    this.ctx.fillStyle = "orange";
-    this.ctx.fillRect(this.x+2, this.y+1, 1, 1)
-    this.ctx.fillStyle = "black";
-    this.ctx.fillRect(this.x, this.y+2, 1, 1)
-    this.ctx.fillStyle = "green";
-    this.ctx.fillRect(this.x+1, this.y+2, 1, 1)
-    this.ctx.fillStyle = "black";
-    this.ctx.fillRect(this.x+2, this.y+2, 1, 1)
-    */
-
-
-
-    
-    // for (var i = 0, n = playerCheckArr.data.length; i < n; i += 4) {
-    //   var red = playerCheckArr.data[i];
-    //   var green = playerCheckArr.data[i + 1];
-    //   var blue = playerCheckArr.data[i + 2];
-    //   var alpha = playerCheckArr.data[i + 3];
-    // //   if (red === 53 && green === 53 && blue === 53) {
-    // //     console.log("hit the wall");
-    //  // }
-    // }

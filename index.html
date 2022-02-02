@@ -1,25 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <link rel="stylesheet" href="styles/style.css" />
-        <title>Squid Game</title>
-      </head>
-<body>
-    <canvas id="canvas" width="0" height="0"></canvas>
-    
-<div id="main-page">
-    <div id="main-img"><img src="/images/personaje-del-juego-squid-muneca-chica-creepy-ilustracion-de-vector-plano-2h474n6.jpg">
-</div>
-
-    <div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="styles/style.css" />
+    <title>Squid Game</title>
+  </head>
+  <body>
+      <div id="main_page">
+          <div id="main-img">
+              <img id="squid_game" src="/images/titulo_main.png" alt="squid game img">
+        </div>
+        <div id="player_select">
+            <div id="1player">
+                <img id="soldier_square" src="/images/soldier_square.png" alt="soldier square">  
+                <p class="text">1 PLAYER</p>
+            </div>
+            
+            <div id="2players">
+                <img id="soldier_triang" src="/images/soldier_triang.png" alt="soldier triang">
+                <img id="soldier_circle" src="/images/soldier_circle.png" alt="soldier circle">
+                <p class="text2">2 PLAYERS</p>
+                </div>
+        </div>
         <button id="start-button">START</button>
     </div>
-
-</div>
-
+    <canvas id="canvas" width="0" height="0"></canvas>
     <script type="text/javascript" src="js/doll.js"></script>
     <script type="text/javascript" src="js/bullet.js"></script>
     <script type="text/javascript" src="js/player.js"></script>
@@ -27,6 +34,5 @@
     <script type="text/javascript" src="js/background.js"></script>
     <script type="text/javascript" src="js/game.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
-
-</body>
+  </body>
 </html>

@@ -1,17 +1,18 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
+ctx.save()
 /*
 
-const background = new Background(ctx);
+
 
 */
 
 let introSong = new Audio('/audio/intro.mp3');
-let dollSong = new Audio('/audio/doll_song.mp3')
+
 //let laserSound = new Audio('/audio/boom_headshot.mp3')
 
 
-
+const background = new Background(ctx);
 const bullet1 = new Bullet(ctx, 876, 550,90,90, "up") // ctx, x, y,width,height, direction
 const bullet2 = new Bullet(ctx, 745, 0,90,90, "down") // ctx, x, y,width,height, direction
 const bullet3 = new Bullet(ctx, 629, 51,75,75, "round") // ctx, x, y,width,height, direction
@@ -19,8 +20,8 @@ const bullet4 = new Bullet(ctx, 384, 423,75,75, "round") // ctx, x, y,width,heig
 const player1 = new Player(ctx, 1100, 150, 15, 30, "rgb(0, 0, 230)", "1")
 const player2 = new Player(ctx, 1100, 370, 15, 30, "rgb(230, 0, 0)", "2")
 const field = new Field(ctx)
-const doll = new Doll(ctx, dollSong)
-const game = new Game(ctx, field, player1, player2, bullet1, bullet2,bullet3,bullet4,doll);
+const doll = new Doll(ctx)
+const game = new Game(ctx, field, player1, player2, bullet1, bullet2,bullet3,bullet4,doll,background);
 
 let moveSpeed = 0.8;
 
@@ -31,12 +32,13 @@ let moveSpeed = 0.8;
 
 
 const startButton = document.getElementById("start-button");
-const mainPage = document.getElementById("main-page")
+const mainPage = document.getElementById("main_page")
 
 mainPage.onclick = function () { introSong.play()}
+canvas.onclick = function (){if(!game.continueGame)game.init()}
 
 startButton.onclick = function () {
-  console.log("start")
+  
   mainPage.remove();
   game.init();
   introSong.currentTime = 100;

@@ -1,5 +1,5 @@
 class Doll {
-    constructor(ctx, dollSong) {
+    constructor(ctx) {
   
       this.ctx = ctx;
       this.x = 59;
@@ -8,24 +8,33 @@ class Doll {
       this.height = 180;
       this.color = "green"
       this.counter = 0;
-      this.dollSong = dollSong
       this.sing = false
       this.img = new Image();
       this.img.src = "/images/doll.png";
+      this.dollSong = new Audio()
+      this.dollSong.src = '/audio/doll_song.mp3'
+      this.seconds = 0
+      this.intervalId
             
     }
 
     start(frameNumber){
+      if(frameNumber < 1){
+      this.intervalId = setInterval(() => {
+        this.seconds++;
+      }, 1000);}
 
     }
-    move(seconds){
 
-      if( seconds % 5 === 0 ){this.color = "red"
-      this.dollSong.play()
-    this.sing = false}
+    move(){
+
+      if( this.seconds % 5 === 0 ){this.color = "red"
+      
+      this.sing = false}
         
-      if( seconds % 10 === 0 ){this.color = "green";
-    this.sing = true}
+      if( this.seconds % 10 === 0 ){this.color = "green";
+      this.dollSong.play()
+      this.sing = true}
 
     // console.log(this.sing)
       

@@ -4,8 +4,11 @@ class Field{
         this.x = 50;
         this.y = 50;
         }
+    
+    
 
     draw(){
+        
 
         this.ctx.fillStyle = "rgb(238, 200, 156)";// background color
         this.ctx.fillRect(0, 0, 1200, 50)// franja arriba
@@ -48,12 +51,8 @@ class Field{
         this.ctx.fillText("I", 210, 300);
         this.ctx.fillText("S", 210, 350);
         this.ctx.fillText("H", 210, 400);
-
-        // this.ctx.fillStyle = "rgb(238, 200, 156)";// background color
-        // this.ctx.fillRect(490, 125, 110, 50) //guarida arriba
-        // this.ctx.fillRect(490, 375, 110, 50) //guarida arriba
-
-       
+        
+        
         }
     
     

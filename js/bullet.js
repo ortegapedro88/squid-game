@@ -8,25 +8,33 @@ class Bullet {
       this.width = width;
       this.height = height;
       this.img = new Image();
-      this.img.src = "/images/1.png";
+      this.img.src = "/images/ball_sprite.png";
   
-    //   // sprites image definition
-    //   this.spriteColumns = 9;
-    //   this.spriteRows = 1;
+    /// sprites image definition
+      this.spriteColumns = 8;
+       this.spriteRows = 1;
   
-    //   //counters to navigate in the image
-    //   this.spriteCol = 0;
-    //   this.spriteRow = 0;
-    //   this.spriteX = 300;
-    //   this.spriteY = 300;
+       //counters to navigate in the image
+       this.spriteCol = 0;
+       this.spriteRow = 0;
+      
             
     // }
-
 
     // setSpriteFrame(frameNumber) {
        
       }
 
+      setSpriteFrame(frameNumber){
+        if (frameNumber % 10 === 0) {
+            this.spriteCol += 1;}
+        
+        if (this.spriteCol >= this.spriteColumns) {
+            this.spriteCol = 0;
+        
+      }
+      
+    }
 
     move(frameNumber){
 
@@ -50,40 +58,22 @@ class Bullet {
        
        
   }
-       // if(this.x < 200){this.x = 680}
-    
-    
-    
-    
-  
+       
 
-        // if (frameNumber % 10 === 0) {
-        //     this.spriteCol += 1;
-           
-      
-        //     if (this.spriteCol >= this.spriteColumns) {
-        //       this.spriteCol = 0;
-        //       this.spriteRow += 1;
-
-        //       if(this.spriteRow >= this.spriteRows){
-        //           this.spriteRow = 0;
-        //       }
-        //     }
-        //      this.spriteX = (this.width * this.spriteCol) // the x of the current sprite in the image
-        //      this.spriteY = (this.height * this.spriteRow) // the y of the current sprite in the image
-        //   }
-      
-    
-  
-
-    draw() {
+    draw(frameNumber) {
           this.ctx.drawImage(
             this.img,
-            this.x, // the x-axis coordinate in the destination canvas
+            350*this.spriteCol, // the x-axis coordinate in the destination canvas
+            0,
+            350,
+            350,
+            this.x,
             this.y,
             this.width,
-            this.height,           
+            this.height
+                                  
           )
+          this.setSpriteFrame(frameNumber)
     }
   }
   
