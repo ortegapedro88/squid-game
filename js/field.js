@@ -39,6 +39,16 @@ class Field{
         this.ctx.fillRect(970, 50, 30, 160)  // tercer obs
         this.ctx.fillRect(970, 340, 30, 160) // tercer obs
 
+        this.ctx.fillStyle = "black";
+        this.ctx.textAlign = "center";
+        this.ctx.font = "bold 25px sans-serif";
+        this.ctx.fillText("F", 210, 150);
+        this.ctx.fillText("I", 210, 200);
+        this.ctx.fillText("N", 210, 250);
+        this.ctx.fillText("I", 210, 300);
+        this.ctx.fillText("S", 210, 350);
+        this.ctx.fillText("H", 210, 400);
+
         // this.ctx.fillStyle = "rgb(238, 200, 156)";// background color
         // this.ctx.fillRect(490, 125, 110, 50) //guarida arriba
         // this.ctx.fillRect(490, 375, 110, 50) //guarida arriba

@@ -23,6 +23,8 @@ class Game {
     this.frameNumber = 0;
     this.continueGame = true;
     this.seconds = 0;
+    this.win1 = false;
+    this.win2 = false;
   }
   init() {
     this.frameNumber = 0
@@ -68,20 +70,21 @@ class Game {
     this.bullet3.draw();
     this.bullet4.draw();
     this.field.draw();
-    this.doll.draw();
     this.player1.gOverBoard()
     this.player2.gOverBoard()
-    if(!this.continueGame){this.gameOverCanvas()}
+    this.doll.draw();
+    this.player1.laserDraw()
+    this.player2.laserDraw()
+    if(!this.continueGame && !this.win1 && !this.win2){this.gameOverCanvas()}
+    if(this.win1){this.win1Canvas()}
+    if(this.win2){this.win2Canvas()}
     // this.bullet.draw()
   }
 
   checkGameOver() {
     if (player1.gOver && player2.gOver) {
       this.continueGame = false;
-           
-      
-
-     
+              
     }
   }
 
@@ -101,13 +104,40 @@ class Game {
 
   }
 
+  win1Canvas(){
+    this.ctx.fillStyle = "rgba(0, 0, 0, 0.6)";
+       this.ctx.fillRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
+       this.ctx.fillStyle = "red";
+       this.ctx.textAlign = "center";
+       this.ctx.font = "bold 90px sans-serif";
+       this.ctx.fillText(
+         "Player 1 Wins",
+         this.ctx.canvas.width / 2,
+         this.ctx.canvas.height / 3
+       );
+  }
+  win2Canvas(){
+    this.ctx.fillStyle = "rgba(0, 0, 0, 0.6)";
+       this.ctx.fillRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
+       this.ctx.fillStyle = "red";
+       this.ctx.textAlign = "center";
+       this.ctx.font = "bold 90px sans-serif";
+       this.ctx.fillText(
+         "Player 2 Wins",
+         this.ctx.canvas.width / 2,
+         this.ctx.canvas.height / 3
+       );
+  }
+
   checkWin() {
     if (this.player1.x <= 220) {
       console.log("PLAYER 1 WINS!!!!");
+      this.win1 = true;
       this.continueGame = false;
     }
     if (this.player2.x <= 220) {
       console.log("PLAYER 2 WINS!!!!");
+      this.win2 = true
       this.continueGame = false;
     }
   }

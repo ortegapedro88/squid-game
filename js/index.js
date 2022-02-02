@@ -8,6 +8,7 @@ const background = new Background(ctx);
 
 let introSong = new Audio('/audio/intro.mp3');
 let dollSong = new Audio('/audio/doll_song.mp3')
+//let laserSound = new Audio('/audio/boom_headshot.mp3')
 
 
 
@@ -15,8 +16,8 @@ const bullet1 = new Bullet(ctx, 876, 550,90,90, "up") // ctx, x, y,width,height,
 const bullet2 = new Bullet(ctx, 745, 0,90,90, "down") // ctx, x, y,width,height, direction
 const bullet3 = new Bullet(ctx, 629, 51,75,75, "round") // ctx, x, y,width,height, direction
 const bullet4 = new Bullet(ctx, 384, 423,75,75, "round") // ctx, x, y,width,height, direction
-const player1 = new Player(ctx, 1100, 150, 15, 30, "rgb(0, 0, 230)", "Player 1")
-const player2 = new Player(ctx, 1100, 370, 15, 30, "rgb(230, 0, 0)", "Player 2")
+const player1 = new Player(ctx, 1100, 150, 15, 30, "rgb(0, 0, 230)", "1")
+const player2 = new Player(ctx, 1100, 370, 15, 30, "rgb(230, 0, 0)", "2")
 const field = new Field(ctx)
 const doll = new Doll(ctx, dollSong)
 const game = new Game(ctx, field, player1, player2, bullet1, bullet2,bullet3,bullet4,doll);

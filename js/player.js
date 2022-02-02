@@ -15,6 +15,13 @@ class Player {
     this.walking = false
     this.stillPosition = []
     this.name = name
+    this.img = new Image();
+    this.img.src = "/images/ashes.png";
+    this.gOverDoll = false
+    this.audio1 = new Audio();
+    this.audio1.src = '/audio/boom_headshot1.mp3'
+    this.audio2 = new Audio();
+    this.audio2.src = '/audio/boom_headshot2.mp3'
     
     
   }
@@ -27,7 +34,8 @@ class Player {
 
     if(!doll.sing){this.stillPosition.push([this.x,this.y])
       for(let i = 0; i< this.stillPosition.length-1; i++){
-      if(this.stillPosition[i][0] != this.stillPosition[i+1][0] || this.stillPosition[i][1] != this.stillPosition[i+1][1]){this.gameOverDoll()}
+      if(this.stillPosition[i][0] != this.stillPosition[i+1][0] || this.stillPosition[i][1] != this.stillPosition[i+1][1]){this.gameOverDoll()
+      this.stillPosition = []}
     }
       }
       //console.log(this.stillPosition)
@@ -50,26 +58,62 @@ class Player {
     
 
     for (var i = 0; i < playerCheckArr.data.length ; i += 4) {
-      if ( playerCheckArr.data[i] === 255 || playerCheckArr.data[i+1] === 255 ||  playerCheckArr.data[i+2] === 255) {
-         console.log("DEAD MADAFAKA");
+      if ( playerCheckArr.data[i] === 255 && playerCheckArr.data[i+1] === 0 &&  playerCheckArr.data[i+2] === 0) {
+         console.log("DEAD MADAFAKA");// si lo toca una bola
          this.gameOver()
     }
 }
 }
   draw() {
+    console.log(this.gOverDoll)
+    if(!this.gOver){
     this.ctx.fillStyle = this.color;
     this.ctx.fillRect(this.x, this.y, this.width, this.height);
-
-
+    this.ctx.fillStyle = "black";
+    this.ctx.textAlign = "center";
+    this.ctx.font = "bold 25px sans-serif";
+    this.ctx.fillText(this.name, this.x+this.width/2, this.y+this.height*0.8);}
+    if(this.gOver){
+      this.ctx.drawImage(this.img ,this.x, this.y, 35, 35)
+    }
+    
+    
+    
+    
   }
 
+  laserDraw(){
+    if(this.gOverDoll){
+      this.ctx.beginPath();
+      this.ctx.strokeStyle = "rgb(240,0,0)";
+      this.ctx.moveTo(doll.x+40, doll.y+80);
+      this.ctx.lineTo(this.x+this.width/2, this.y+this.height/2);
+      this.ctx.stroke(); 
+      this.ctx.beginPath();
+      this.ctx.strokeStyle = "rgb(240,0,0)";
+      this.ctx.moveTo(doll.x+95, doll.y+80);
+      this.ctx.lineTo(this.x+this.width/2, this.y+this.height/2);
+      this.ctx.stroke(); 
+      if(player1.gOverDoll && !player2.gOverDoll)this.audio1.play(); 
+      if(player2.gOverDoll && !player1.gOverDoll)this.audio1.play();
+      if(player2.gOver && player1.gOver)this.audio2.play();
+      
+      setTimeout(() => {
+        this.gOverDoll = false
+      }, 400);
+      
+    }
+  
+  }
+
+  
   gOverBoard(){
     if(this.gOver){
       this.ctx.fillStyle = "white";
       this.ctx.textAlign = "center";
       this.ctx.font = "bold 25px sans-serif";
       this.ctx.fillText(
-      `${this.name}`,
+      `Player ${this.name}`,
       545,
       225
     )
@@ -90,15 +134,21 @@ class Player {
   gameOver(){
     this.gOver = true;
 
+
+
       
   }
 
   gameOverDoll(){
-    this.gOver = true;   
-  }
-  gameOverDraw(){
+    this.gOver = true;  
+    this.gOverDoll = true
   
+    
+    
+    
+
   }
+  
 
 }
 
