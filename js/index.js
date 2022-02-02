@@ -31,13 +31,16 @@ let moveSpeed = 0.8;
 
 
 
-const startButton = document.getElementById("start-button");
+//const startButton = document.getElementById("start-button");
 const mainPage = document.getElementById("main_page")
 
 mainPage.onclick = function () { introSong.play()}
 canvas.onclick = function (){if(!game.continueGame)game.init()}
 
-startButton.onclick = function () {
+
+const twoPlayers = document.getElementById("twoPlayers");
+
+twoPlayers.onclick = function () {
   
   mainPage.remove();
   game.init();
