@@ -49,6 +49,9 @@ class Background {
     this.ctx.drawImage(this.img4,875,-65,92,120);
     this.ctx.drawImage(this.img3,744,495,92,120);
     this.ctx.drawImage(this.img4,744,-65,92,120);
+
+    this.ctx.font = "bold 20px sans-serif"
+    this.ctx.fillText(`Coded by`, 100, 300)
     
     
 

@@ -47,8 +47,9 @@ class Game {
     this.win1 = false;
     this.win2 = false;
     this.player1.x = 1100
-    if(this.onePlayerGame)this.player1.y = 275;
-    if(this.twoPlayersGame)this.player1.y = 150
+    //if(this.onePlayerGame)this.player1.y = 275;
+    //if(this.twoPlayersGame)
+    this.player1.y = 150
     this.player2.x = 1100
     this.player2.y = 370
     this.player1.tl = 1
@@ -115,8 +116,8 @@ class Game {
     this.move();
     this.checkGameOver();
     this.checkWin();
-    player1.checkCollisions();
-    player2.checkCollisions();
+    player1.checkCollisions(this.frameNumber);
+    player2.checkCollisions(this.frameNumber);
     this.ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
     this.draw();
     if (this.continueGame) this.reqId = requestAnimationFrame(this.start.bind(this));
@@ -130,8 +131,59 @@ class Game {
     this.bullet3.move(this.frameNumber);
     this.bullet4.move(this.frameNumber);
     this.doll.move(this.seconds);
+    // this.checkCollisions()
   }
+/*
+  checkCollisions(){
+    
 
+      if((this.player1.x+this.player1.width > this.player2.x) && (this.player1.y <= this.player2.y+ this.player2.height)){
+        this.player1.tPU = 0;
+        this.player1.tPR = 0;
+        this.player2.tPD = 0
+        this.player2.tPL = 0
+      } else {
+        this.player1.tPU = 1;
+        this.player1.tPR = 1;
+        this.player2.tPD = 1;
+        this.player2.tPL = 1;
+      }
+      if((this.player1.x < this.player2.x+this.player2.width) && (this.player1.y < this.player2.y+ this.player2.height)){
+        this.player1.tPU = 0;
+        this.player1.tPL = 0;
+        this.player2.tPD = 0
+        this.player2.tPR = 0
+      } else {
+        this.player1.tPU = 1;
+        this.player1.tPL = 1;
+        this.player2.tPD = 1;
+        this.player2.tPR = 1;
+      }
+      if((this.player2.x+this.player2.width > this.player1.x) && (this.player2.y < this.player1.y+ this.player1.height)){
+        this.player2.tPU = 0;
+        this.player2.tPR = 0;
+        this.player1.tPD = 0
+        this.player1.tPL = 0
+      } else {
+        this.player2.tPU = 1;
+        this.player2.tPR = 1;
+        this.player1.tPD = 1;
+        this.player1.tPL = 1;
+      }
+      if((this.player2.x < this.player2.x+this.player2.width) && (this.player2.y < this.player2.y+ this.player2.height)){
+        this.player2.tPU = 0;
+        this.player2.tPL = 0;
+        this.player1.tPD = 0
+        this.player1.tPR = 0
+      } else {
+        this.player1.tPU = 1;
+        this.player1.tPL = 1;
+        this.player1.tPD = 1;
+        this.player1.tPR = 1;
+      }
+
+  }
+*/
   draw() {
     if(!this.onePlayerGame)this.player2.draw();
     this.player1.draw();
