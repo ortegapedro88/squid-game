@@ -39,10 +39,6 @@ class Game {
     this.ctx.restore()
     this.ctx.canvas.width = 1200;
     this.ctx.canvas.height = 540;
-    
-    
-    //////////////////////// restart
-    
     this.continueGame = true;
     this.win1 = false;
     this.win2 = false;
