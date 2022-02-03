@@ -1,6 +1,13 @@
+body{
+  margin: 0;
+  background-color: black;
+}
+
 #canvas {
+ 
   background-color: rgb(238, 200, 156);
   width: 100%;
+  
 }
 
 #main_page {

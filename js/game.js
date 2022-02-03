@@ -38,7 +38,7 @@ class Game {
     cancelAnimationFrame(this.reqId)
     this.ctx.restore()
     this.ctx.canvas.width = 1200;
-    this.ctx.canvas.height = 550;
+    this.ctx.canvas.height = 540;
     
     
     //////////////////////// restart
