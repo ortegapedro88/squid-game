@@ -9,10 +9,9 @@ class Game {
     bullet3,
     bullet4,
     doll,
-    background
+    background,
   ) {
     this.ctx = ctx;
-    //  this.background = background;
     this.field = field;
     this.player1 = player1;
     this.player2 = player2;
@@ -28,6 +27,8 @@ class Game {
     this.win2 = false;
     this.background = background;
     this.reqId = 0
+    this.onePlayerGame = false
+    this.twoPlayersGame = false
   }
 
 
@@ -46,8 +47,9 @@ class Game {
     this.win1 = false;
     this.win2 = false;
     this.player1.x = 1100
+    if(this.onePlayerGame)this.player1.y = 275;
+    if(this.twoPlayersGame)this.player1.y = 150
     this.player2.x = 1100
-    this.player1.y = 150
     this.player2.y = 370
     this.player1.tl = 1
     this.player1.tr = 1
@@ -87,6 +89,10 @@ class Game {
     keyS = false;
     keyD = false;
     keyW = false;
+    // this.player1.realDeath = false
+    // this.player2.realDeath = false
+    // this.player1.deathCount = 0
+    // this.player2.deathCount = 0
     this.ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
     
     
@@ -103,6 +109,7 @@ class Game {
   }
   
   start() {
+    // console.log(this.onePlayerGame)
     this.doll.start(this.frameNumber);
     this.frameNumber += 1;
     this.move();
@@ -117,8 +124,7 @@ class Game {
 
   move() {
     this.player1.move(this.frameNumber);
-    this.player2.move(this.frameNumber);
-    //this.background.move(this.frameNumber)
+    if(!this.onePlayerGame)this.player2.move(this.frameNumber);
     this.bullet1.move(this.frameNumber);
     this.bullet2.move(this.frameNumber);
     this.bullet3.move(this.frameNumber);
@@ -127,7 +133,7 @@ class Game {
   }
 
   draw() {
-    this.player2.draw();
+    if(!this.onePlayerGame)this.player2.draw();
     this.player1.draw();
     this.bullet1.draw(this.frameNumber);
     this.bullet2.draw(this.frameNumber);
@@ -137,10 +143,10 @@ class Game {
     this.background.draw()
     this.background.setSpriteFrame(this.frameNumber)
     this.player1.gOverBoard()
-    this.player2.gOverBoard()
+    if(!this.onePlayerGame)this.player2.gOverBoard()
     this.doll.draw();
     this.player1.laserDraw()
-    this.player2.laserDraw()
+    if(!this.onePlayerGame)this.player2.laserDraw()
     if(!this.continueGame && !this.win1 && !this.win2){this.gameOverCanvas()}
     if(this.win1){this.win1Canvas()}
     if(this.win2){this.win2Canvas()}
@@ -148,7 +154,7 @@ class Game {
   }
 
   checkGameOver() {
-    if (player1.gOver && player2.gOver) {
+    if (player1.gOver && (player2.gOver || this.onePlayerGame)) {
       this.continueGame = false;
               
     }

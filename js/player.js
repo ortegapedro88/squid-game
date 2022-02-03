@@ -22,6 +22,8 @@ class Player {
     this.audio1.src = '/audio/boom_headshot1.mp3'
     this.audio2 = new Audio();
     this.audio2.src = '/audio/boom_headshot2.mp3'
+    // this.deathCount = 0
+    // this.realDeath = false
     
     
   }
@@ -65,7 +67,8 @@ class Player {
 }
 }
   draw() {
-    console.log(this.gOverDoll)
+    
+   // if(this.deathCount === 3){this.realDeath = true}
     if(!this.gOver){
     this.ctx.fillStyle = this.color;
     this.ctx.fillRect(this.x, this.y, this.width, this.height);
@@ -132,11 +135,13 @@ class Player {
   }
 
   gameOver(){
+   // this.deathCount +=1;
     this.gOver = true;
- 
+    
   }
 
   gameOverDoll(){
+    //this.deathCount +=1;
     this.gOver = true;  
     this.gOverDoll = true
  
