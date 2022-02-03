@@ -8,7 +8,7 @@ class Bullet {
       this.width = width;
       this.height = height;
       this.img = new Image();
-      this.img.src = "../images/ball_sprite.png";
+      this.img.src = "./images/ball_sprite.png";
   
     /// sprites image definition
       this.spriteColumns = 8;

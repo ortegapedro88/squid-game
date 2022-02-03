@@ -16,12 +16,12 @@ class Player {
     this.stillPosition = []
     this.name = name
     this.img = new Image();
-    this.img.src = "../images/ashes.png";
+    this.img.src = "./images/ashes.png";
     this.gOverDoll = false
     this.audio1 = new Audio();
-    this.audio1.src = '../audio/boom_headshot1.mp3'
+    this.audio1.src = './audio/boom_headshot1.mp3'
     this.audio2 = new Audio();
-    this.audio2.src = '../audio/boom_headshot2.mp3'
+    this.audio2.src = './audio/boom_headshot2.mp3'
     // this.deathCount = 0
     // this.realDeath = false
     
