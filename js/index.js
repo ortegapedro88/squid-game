@@ -5,7 +5,7 @@ let moveSpeed = 0.8;
 let onePlayerGame = false
 let twoPlayersGame = false
 
-let introSong = new Audio('/audio/intro.mp3');
+let introSong = new Audio('../audio/intro.mp3');
 
 const mainPage = document.getElementById("main_page")
 

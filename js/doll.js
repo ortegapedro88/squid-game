@@ -10,9 +10,9 @@ class Doll {
       this.counter = 0;
       this.sing = false
       this.img = new Image();
-      this.img.src = "/images/doll.png";
+      this.img.src = "../images/doll.png";
       this.dollSong = new Audio()
-      this.dollSong.src = '/audio/doll_song.mp3'
+      this.dollSong.src = '../audio/doll_song.mp3'
       this.seconds = 0
       this.intervalId
             
