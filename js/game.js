@@ -47,8 +47,6 @@ class Game {
     this.win1 = false;
     this.win2 = false;
     this.player1.x = 1100
-    //if(this.onePlayerGame)this.player1.y = 275;
-    //if(this.twoPlayersGame)
     this.player1.y = 150
     this.player2.x = 1100
     this.player2.y = 370
@@ -90,17 +88,7 @@ class Game {
     keyS = false;
     keyD = false;
     keyW = false;
-    // this.player1.realDeath = false
-    // this.player2.realDeath = false
-    // this.player1.deathCount = 0
-    // this.player2.deathCount = 0
     this.ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-    
-    
-    
-    //////////////////////////////
-    
-    
     this.doll.color = "red";
     this.doll.counter = 0;
     this.doll.sing = true
@@ -110,7 +98,7 @@ class Game {
   }
   
   start() {
-    // console.log(this.onePlayerGame)
+  
     this.doll.start(this.frameNumber);
     this.frameNumber += 1;
     this.move();
@@ -131,59 +119,9 @@ class Game {
     this.bullet3.move(this.frameNumber);
     this.bullet4.move(this.frameNumber);
     this.doll.move(this.seconds);
-    // this.checkCollisions()
-  }
-/*
-  checkCollisions(){
     
-
-      if((this.player1.x+this.player1.width > this.player2.x) && (this.player1.y <= this.player2.y+ this.player2.height)){
-        this.player1.tPU = 0;
-        this.player1.tPR = 0;
-        this.player2.tPD = 0
-        this.player2.tPL = 0
-      } else {
-        this.player1.tPU = 1;
-        this.player1.tPR = 1;
-        this.player2.tPD = 1;
-        this.player2.tPL = 1;
-      }
-      if((this.player1.x < this.player2.x+this.player2.width) && (this.player1.y < this.player2.y+ this.player2.height)){
-        this.player1.tPU = 0;
-        this.player1.tPL = 0;
-        this.player2.tPD = 0
-        this.player2.tPR = 0
-      } else {
-        this.player1.tPU = 1;
-        this.player1.tPL = 1;
-        this.player2.tPD = 1;
-        this.player2.tPR = 1;
-      }
-      if((this.player2.x+this.player2.width > this.player1.x) && (this.player2.y < this.player1.y+ this.player1.height)){
-        this.player2.tPU = 0;
-        this.player2.tPR = 0;
-        this.player1.tPD = 0
-        this.player1.tPL = 0
-      } else {
-        this.player2.tPU = 1;
-        this.player2.tPR = 1;
-        this.player1.tPD = 1;
-        this.player1.tPL = 1;
-      }
-      if((this.player2.x < this.player2.x+this.player2.width) && (this.player2.y < this.player2.y+ this.player2.height)){
-        this.player2.tPU = 0;
-        this.player2.tPL = 0;
-        this.player1.tPD = 0
-        this.player1.tPR = 0
-      } else {
-        this.player1.tPU = 1;
-        this.player1.tPL = 1;
-        this.player1.tPD = 1;
-        this.player1.tPR = 1;
-      }
-
   }
-*/
+
   draw() {
     if(!this.onePlayerGame)this.player2.draw();
     this.player1.draw();
@@ -224,7 +162,7 @@ class Game {
          this.ctx.canvas.width / 2,
          this.ctx.canvas.height / 3
        );
-       //this.ctx.restore();
+    
 
   }
 
