@@ -50,9 +50,21 @@ class Background {
     this.ctx.drawImage(this.img3,744,495,92,120);
     this.ctx.drawImage(this.img4,744,-65,92,120);
 
-    this.ctx.font = "bold 20px sans-serif"
-    this.ctx.fillText(`Coded by`, 100, 300)
-    
+
+    this.ctx.fillStyle = "black";
+    this.ctx.textAlign = "left";
+    this.ctx.font = "bold 15px sans-serif";
+    this.ctx.fillText(
+    `Coded by`,
+   1010,
+   450
+  )
+    this.ctx.font = "italic 15px sans-serif"; 
+    this.ctx.fillText(
+    `           Pedrazo`,
+   1010,
+   470
+  )
     
 
   }
