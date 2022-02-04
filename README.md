@@ -7,8 +7,8 @@ My game is about TIMING. You have to sort the labyrinth to reach the finish line
 You can only move when the giant doll is singing, if you break this rule prepare for a terrible death. But beware of the fireballs! 
 Calculate the time well to reach the safe zones to stop.
 
-<img width="400" heigth="200" alt="screen1" src="./images/home_page_squid_game.png">   
-<img width="400" heigth="200" alt="screen2" src="./images/squid_game_layout.png">
+<img width="800" heigth="400" alt="screen1" src="./images/home_page_squid_game.png">   
+<img width="800" heigth="400" alt="screen2" src="./images/squid_game_layout.png">
 
 ## Game Instruction
 - Player 1 - move with the arrow keys (up, down, left, right)
