@@ -1,20 +1,20 @@
 class Background {
   constructor(ctx) {
     this.img = new Image();
-    this.img.src = "/images/c0.png";
+    this.img.src = "./images/c0.png";
     this.spriteColumns = 5;
     this.spriteRows = 1;
     this.spriteCol = 0;
     this.spriteRow = 0;
     this.ctx = ctx
     this.img1 = new Image()
-    this.img1.src = "/images/soldier_triang.png"
+    this.img1.src = "./images/soldier_triang.png"
     this.img2 = new Image()
-    this.img2.src = "/images/soldier_square.png"
+    this.img2.src = "./images/soldier_square.png"
     this.img3 = new Image()
-    this.img3.src = "/images/pipe_down_fix.png"
+    this.img3.src = "./images/pipe_down_fix.png"
     this.img4 = new Image()
-    this.img4.src = "/images/pipe_up_fix.png"
+    this.img4.src = "./images/pipe_up_fix.png"
    
   }
 
@@ -49,7 +49,22 @@ class Background {
     this.ctx.drawImage(this.img4,875,-65,92,120);
     this.ctx.drawImage(this.img3,744,495,92,120);
     this.ctx.drawImage(this.img4,744,-65,92,120);
-    
+
+
+    this.ctx.fillStyle = "black";
+    this.ctx.textAlign = "left";
+    this.ctx.font = "bold 15px sans-serif";
+    this.ctx.fillText(
+    `Coded by`,
+   1010,
+   450
+  )
+    this.ctx.font = "italic 15px sans-serif"; 
+    this.ctx.fillText(
+    `           Pedrazo`,
+   1010,
+   470
+  )
     
 
   }

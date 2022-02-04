@@ -38,17 +38,12 @@ class Game {
     cancelAnimationFrame(this.reqId)
     this.ctx.restore()
     this.ctx.canvas.width = 1200;
-    this.ctx.canvas.height = 550;
-    
-    
-    //////////////////////// restart
-    
+    this.ctx.canvas.height = 540;
     this.continueGame = true;
     this.win1 = false;
     this.win2 = false;
     this.player1.x = 1100
-    if(this.onePlayerGame)this.player1.y = 275;
-    if(this.twoPlayersGame)this.player1.y = 150
+    this.player1.y = 150
     this.player2.x = 1100
     this.player2.y = 370
     this.player1.tl = 1
@@ -89,17 +84,7 @@ class Game {
     keyS = false;
     keyD = false;
     keyW = false;
-    // this.player1.realDeath = false
-    // this.player2.realDeath = false
-    // this.player1.deathCount = 0
-    // this.player2.deathCount = 0
     this.ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-    
-    
-    
-    //////////////////////////////
-    
-    
     this.doll.color = "red";
     this.doll.counter = 0;
     this.doll.sing = true
@@ -109,14 +94,14 @@ class Game {
   }
   
   start() {
-    // console.log(this.onePlayerGame)
+  
     this.doll.start(this.frameNumber);
     this.frameNumber += 1;
     this.move();
     this.checkGameOver();
     this.checkWin();
-    player1.checkCollisions();
-    player2.checkCollisions();
+    player1.checkCollisions(this.frameNumber);
+    player2.checkCollisions(this.frameNumber);
     this.ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
     this.draw();
     if (this.continueGame) this.reqId = requestAnimationFrame(this.start.bind(this));
@@ -130,6 +115,7 @@ class Game {
     this.bullet3.move(this.frameNumber);
     this.bullet4.move(this.frameNumber);
     this.doll.move(this.seconds);
+    
   }
 
   draw() {
@@ -172,7 +158,7 @@ class Game {
          this.ctx.canvas.width / 2,
          this.ctx.canvas.height / 3
        );
-       //this.ctx.restore();
+    
 
   }
 

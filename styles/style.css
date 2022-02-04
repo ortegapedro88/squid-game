@@ -1,3 +1,8 @@
+body {
+  margin: 0;
+  background-color: black;
+}
+
 #canvas {
   background-color: rgb(238, 200, 156);
   width: 100%;
@@ -56,11 +61,9 @@
   align-content: center;
 }
 .text {
- 
   color: white;
   font-size: 50px;
   text-align: center;
- 
 }
 .text2 {
   display: flex;
@@ -81,7 +84,7 @@
   align-items: stretch;
   align-content: center;
 }
-#soldier_square {  
+#soldier_square {
   width: 35%;
 }
 

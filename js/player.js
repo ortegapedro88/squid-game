@@ -16,14 +16,13 @@ class Player {
     this.stillPosition = []
     this.name = name
     this.img = new Image();
-    this.img.src = "/images/ashes.png";
+    this.img.src = "./images/ashes.png";
     this.gOverDoll = false
     this.audio1 = new Audio();
-    this.audio1.src = '/audio/boom_headshot1.mp3'
+    this.audio1.src = './audio/boom_headshot1.mp3'
     this.audio2 = new Audio();
-    this.audio2.src = '/audio/boom_headshot2.mp3'
-    // this.deathCount = 0
-    // this.realDeath = false
+    this.audio2.src = './audio/boom_headshot2.mp3'
+   
     
     
   }
@@ -40,24 +39,42 @@ class Player {
       this.stillPosition = []}
     }
       }
-      //console.log(this.stillPosition)
+    
     
     }
 
-  checkCollisions() {
-    var playerCheckArr = this.ctx.getImageData(this.x, this.y, this.width, this.height);
-
-    // console.log(playerCheckArr)
-
-    if(playerCheckArr.data[24] === 53 || playerCheckArr.data[8] === 53 || playerCheckArr.data[40] === 53){this.tu = 0}
-    else this.tu = 1//up
-    if(playerCheckArr.data[900] === 53 || playerCheckArr.data[240] === 53 || playerCheckArr.data[1500] === 53){this.tl = 0}//left
-    else this.tl = 1
-    if(playerCheckArr.data[897] === 53 || playerCheckArr.data[237] === 53 || playerCheckArr.data[1497] === 53){this.tr = 0}//right
-    else this.tr = 1
-    if(playerCheckArr.data[1764] === 53 || playerCheckArr.data[1756] === 53 || playerCheckArr.data[1780] === 53){this.td = 0}//down
-    else this.td = 1
+  checkCollisions(frameNumber) {
     
+  
+if(this.name === "1"){
+
+    var playerCheckArr = this.ctx.getImageData(this.x-1, this.y-1, this.width+2, this.height+2);
+    
+    if(playerCheckArr.data[4] === 53 || playerCheckArr.data[60] === 53 || playerCheckArr.data[4] === 220 || playerCheckArr.data[60] === 220  ){this.tu = 0}
+    else this.tu = 1//up
+    if(playerCheckArr.data[68] === 53 || playerCheckArr.data[2040] === 53 || playerCheckArr.data[68] === 220 || playerCheckArr.data[2040] === 220 ){this.tl = 0}//left
+    else this.tl = 1
+    if(playerCheckArr.data[132] === 53 || playerCheckArr.data[2104] === 53 || playerCheckArr.data[132] === 220 || playerCheckArr.data[2104] === 220 ){this.tr = 0}//right
+    else this.tr = 1
+    if(playerCheckArr.data[2112] === 53 || playerCheckArr.data[2168] === 53 || playerCheckArr.data[2112] === 220 || playerCheckArr.data[2168] === 220){this.td = 0}//down
+    else this.td = 1
+}
+ 
+    if(this.name === "2"){
+    var playerCheckArr = this.ctx.getImageData(this.x, this.y, this.width, this.height);
+    
+    if(playerCheckArr.data[24] === 53 || playerCheckArr.data[8] === 53 || playerCheckArr.data[40] === 230 || playerCheckArr.data[4] === 10 || playerCheckArr.data[56] === 10){this.tu = 0}
+    else this.tu = 1//up
+    if(playerCheckArr.data[900] === 53 || playerCheckArr.data[240] === 53 || playerCheckArr.data[1500] === 53 || playerCheckArr.data[60] === 10 || playerCheckArr.data[1680] === 10  ){this.tl = 0}//left
+    else this.tl = 1
+    if(playerCheckArr.data[897] === 53 || playerCheckArr.data[237] === 53 || playerCheckArr.data[1497] === 53 || playerCheckArr.data[30] === 10 || playerCheckArr.data[435] === 10 ){this.tr = 0}//right
+    else this.tr = 1
+    if(playerCheckArr.data[1764] === 53 || playerCheckArr.data[1756] === 53 || playerCheckArr.data[1780] === 53 || playerCheckArr.data[1744] === 10 || playerCheckArr.data[1792] === 10){this.td = 0}//down
+    else this.td = 1
+}
+
+
+
 
     for (var i = 0; i < playerCheckArr.data.length ; i += 4) {
       if ( playerCheckArr.data[i] === 255 && playerCheckArr.data[i+1] === 0 &&  playerCheckArr.data[i+2] === 0) {
@@ -135,13 +152,13 @@ class Player {
   }
 
   gameOver(){
-   // this.deathCount +=1;
+   
     this.gOver = true;
     
   }
 
   gameOverDoll(){
-    //this.deathCount +=1;
+    
     this.gOver = true;  
     this.gOverDoll = true
  
